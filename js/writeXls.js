@@ -2,7 +2,7 @@ const fs = require('fs')
 const xlsx = require('node-xlsx')
 
 /**
- * 
+ * 生成excel表格
  * @param {数据} datas 
  * @param {路径} path
  * @param {表格名} name
