@@ -12,7 +12,6 @@ function run(start, end) {
     if (start >= end) return
     let csdnArr = [] //每页的数据
     let url = 'https://bbs.csdn.net/forums/WebDevelop?page=' + (start + 1)
-    // let url = 'https://bbs.csdn.net/forums/WebDevelop?page=2'
     superagent.get(url).then(res => {
         let $ = cheerio.load(res.text)
         $('tbody>tr').each((i, item) => {
