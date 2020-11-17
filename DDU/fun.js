@@ -1,6 +1,14 @@
+function log(obj) {
+    console.log(obj)
+}
+
 const ddu = {
+    //打印
+    log(obj) {
+        console.log(obj)
+    },
     //判断是否为空
-    empty(obj) {
+    isEmpty(obj) {
         if (obj) {
             if (typeof (obj) === 'object') {
                 if (Object.prototype.toString.call(obj) == '[object Array]' && obj.length > 0) {
@@ -20,8 +28,9 @@ const ddu = {
         return false;
     },
     //浮点数精确计算
-    floatSub(num1, num2, type) {
+    floatCalculate(num1, num2, type) {
         let a, b, m
+        //获取数的小数点后有几位（整数 和 浮点数）
         a = (num1 % 1 === 0) ? 0 : num1.toString().split('.')[1].length
         b = (num2 % 1 === 0) ? 0 : num2.toString().split('.')[1].length
         m = Math.pow(10, Math.max(a, b))
@@ -34,8 +43,23 @@ const ddu = {
         } else if (type == '/') {
             return (num1 * m) / (num2 * m)
         }
+    },
+    //替换url中的值
+    // let url = "http://www.baidu.com?a=3&b=4"
+    // let newUrl = ddu.replaceParamVal(url, 'a', '7')
+    //  http://www.baidu.com?a=7&b=4
+    replaceParamVal(url, paramName, replaceVal) {
+        var re = new RegExp('(' + paramName + '=)([^&]*)', 'gi')
+        return url.replace(re, paramName + '=' + replaceVal)
     }
 }
+
+
+log(1.4 + 1.7)
+log(ddu.floatCalculate(1.4, 1.7, '+'))
+
+
+
 
 
 module.exports = ddu
