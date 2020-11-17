@@ -15,16 +15,47 @@ function getData(i, max) {
     let bkyUrl = 'https://www.cnblogs.com/?CategoryId=808&CategoryType=SiteHome&ItemListActionName=AggSitePostList&PageIndex=' + (i + 1) + '&ParentCategoryId=0&TotalPostCount=4000'
     bky.bky(bkyUrl).then(res => {
         data = data.concat(res)
-        console.log(i+1+'页录入数组')
+        console.log(i + 1 + '页录入数组')
         if (i == max - 1) {
             console.log('excel表生成')
             writeXls.writeXls('js/sheet2.xlsx', data, 'sheet1')
         }
         i++
-        getData(i,max)
+        getData(i, max)
     })
 }
-getData(0, 200)
+
+let list = []
+for (let i = 0; i < 200; i++) {
+    list.push(i)
+}
+
+
+
+function asyncGetData(n) {
+    let list = []
+    for (let i = 0; i < n; i++) {
+        list.push(i)
+    }
+    async.mapLimit(list, n, (index, callback) => {
+        let bkyUrl = 'https://www.cnblogs.com/?CategoryId=808&CategoryType=SiteHome&ItemListActionName=AggSitePostList&PageIndex=' + (index + 1) + '&ParentCategoryId=0&TotalPostCount=4000'
+        bky.bky(bkyUrl).then(res => {
+            data = data.concat(res)
+            console.log(index + 1 + '页录入数组')
+            console.log(data.length)
+            if (data.length == (n * 20 + 1)) {
+                console.log('excel表生成')
+                writeXls.writeXls('js/sheet2.xlsx', data, 'sheet1')
+            }
+        })
+    }, (err, res) => {
+        if (err) {
+            console.log(err)
+        }
+    })
+}
+asyncGetData(200)
+// getData(0, 200)
 
 
 
