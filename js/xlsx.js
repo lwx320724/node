@@ -42,7 +42,6 @@ function asyncGetData(n) {
         bky.bky(bkyUrl).then(res => {
             data = data.concat(res)
             console.log(index + 1 + '页录入数组')
-            console.log(data.length)
             if (data.length == (n * 20 + 1)) {
                 console.log('excel表生成')
                 writeXls.writeXls('js/sheet2.xlsx', data, 'sheet1')
