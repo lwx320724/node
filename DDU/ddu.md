@@ -1,4 +1,4 @@
-vue 生命周期 详细
+----------vue 生命周期 详细----------------
 
 
 
@@ -13,7 +13,7 @@ beforCreate 还没有data 等数据
 created   才有数据
 
 
------------------------------------------
+
 vue 各阶段数据可使用情况 ： created 、 computed 、data 、prop 、mounted 、methods 、watch
 
 
@@ -23,3 +23,33 @@ data        3         同上                            定义以及初始化数
 computed    4         同上                            提供简单的数据计算      带有缓存功能
 method      2         同上                            提供复杂的数据计算      不带缓存
 
+
+
+
+
+
+
+----------vue router 详细----------------
+$router:    全局路由的实例，router构造方法的实例
+$route:    当前路由的信息
+
+
+
+路由 钩子函数
+    全局钩子函数
+        1.router.beforeEach((to,from,next)=>{})   
+        2.router.afterEach((to,from)=>)
+    单个路由钩子函数
+        1.beforeEnter(to,from,next){}
+    组件钩子函数
+        1.beforeRouteEnter(to,from,next){}   早于beforeCreate生命周期
+        2.beforeRouteUpdate(to, from, next){}
+        3.beforeRouteLeave(to,from,next){}
+
+
+路由监听 
+    watch
+        watch: {
+            '$route':'方法名' //放在methods
+        },
+    
