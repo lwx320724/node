@@ -45,9 +45,6 @@ const ddu = {
         }
     },
     //替换url中的值
-    // let url = "http://www.baidu.com?a=3&b=4"
-    // let newUrl = ddu.replaceParamVal(url, 'a', '7')
-    //  http://www.baidu.com?a=7&b=4
     replaceParamVal(url, paramName, replaceVal) {
         var re = new RegExp('(' + paramName + '=)([^&]*)', 'gi')
         return url.replace(re, paramName + '=' + replaceVal)
