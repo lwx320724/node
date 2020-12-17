@@ -1,6 +1,3 @@
-function log(obj) {
-    console.log(obj)
-}
 
 const ddu = {
     //打印
@@ -50,14 +47,6 @@ const ddu = {
         return url.replace(re, paramName + '=' + replaceVal)
     }
 }
-
-
-log(1.4 + 1.7)
-log(ddu.floatCalculate(1.4, 1.7, '+'))
-
-
-
-
 
 module.exports = ddu
 
