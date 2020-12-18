@@ -1,7 +1,6 @@
 var async = require('async');
 
 const bky = require('./request')
-const writeXls = require('./writeXls')
 
 var concurrencyCount = 0;
 let data = []
@@ -12,7 +11,6 @@ var fetchUrl = function (url, callback) {
   console.log('现在的并发数是', concurrencyCount, '，正在抓取的是', url);
   bky.bky(url).then(res => {
     concurrencyCount--;
-    console.log(res)
     callback(null, res)
   })
 };
