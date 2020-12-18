@@ -1,7 +1,7 @@
 const superagent = require('superagent')
 const cheerio = require('cheerio')
 
-const async = require()
+const async = require('async')
 
 
 /*
