@@ -12,7 +12,6 @@ var fetchUrl = function (url, callback) {
   console.log('现在的并发数是', concurrencyCount, '，正在抓取的是', url);
   bky.bky(url).then(res => {
     concurrencyCount--;
-    // data = data.concat(res)
     console.log(res)
     callback(null, res)
   })
