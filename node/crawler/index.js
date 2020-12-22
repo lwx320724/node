@@ -6,14 +6,6 @@ const async = require('async')
 
 const bky = require('../js/request.js')
 
-
-
-/*
-
-
-
-*/
-
 var concurrencyCount = 0
 
 function requestCallBack(item, callback) {
@@ -25,14 +17,12 @@ function requestCallBack(item, callback) {
     })
 }
 
-
-
-function crawler(urls, limit) {
+function crawler(urls, limit, requestCallBack) {
     //并发
     async.mapLimit(urls, limit, requestCallBack, (err, result) => {
-        // console.log(result)
+        if (err) return err
+        return result
     });
-
 }
 
 var urls = [];
@@ -41,4 +31,4 @@ for (var i = 0; i < 20; i++) {
 }
 
 
-crawler(urls, 3)
+crawler(urls, 3, requestCallBack)
