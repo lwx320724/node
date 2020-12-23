@@ -1,5 +1,5 @@
 const superagent = require('superagent')
-let writeXls = require('./writeXls')
+let writeXls = require('../excel/index')
 const cheerio = require('cheerio')
 
 //csdn-Web 开发论坛-数据
