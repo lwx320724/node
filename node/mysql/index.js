@@ -14,8 +14,9 @@ function jsonWrite(val) {
 //模糊查询
 function fuzzyQuery() {
     //查出  title 字段中含有'架构'的数据
-    let sql_name = 'select * from bky where title like "%架构%" '
+    let sql_name = 'select * from bky where title like "%架构%%师%%长%" '
     connection.query(sql_name, (err, res) => {
+        if(err) console.log(err)
         console.log(jsonWrite(res))
         console.log(jsonWrite(res).length)
     })
