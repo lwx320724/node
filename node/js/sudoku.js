@@ -11,7 +11,7 @@ let data = [
     [0, 0, 0, 0, 0, 0, 0, 0, 0]
 ]
 
-function check20Grid(sudo, i, j) {
+function checkGrid(sudo, i, j) {
     let row = {}, col = {}, subSudo = {}        //辅助变量
     for (let k = 0; k < 9; k++) {
         let cur1 = sudo[i][k], cur2 = sudo[k][j]
@@ -48,7 +48,7 @@ function findAnswer(problem) {
                 let k = problem[i][j] + 1;        //搜索向下一个合法值迈进
                 while (k < 10) {               //循环找到下一个合法值
                     problem[i][j] = k;          //填值
-                    if (check20Grid(problem, i, j) == 0) {  //判定合法，相关二十格判定
+                    if (checkGrid(problem, i, j) == 0) {  //判定合法，相关二十格判定
                         stack.push([i, j++])        //存储回溯点，并步进
                         break;
                     }
