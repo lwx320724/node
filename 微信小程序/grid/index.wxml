@@ -1,0 +1,37 @@
+<wxs module="Int">
+  function getInt(val) {
+    return Math.floor(val)
+  }
+  function hasItem(arr, val) {
+    var index = arr.indexOf(val)
+    return index != -1 ? true : false
+  }
+  module.exports.getInt = getInt;
+  module.exports.hasItem = hasItem;
+</wxs>
+<view class="main" bindtouchstart='touchStart' bindtouchmove='touchMove' bindtouchend='touchEnd'>
+  <view class="dot" wx:for="{{dotCount}}" wx:key="index"
+    style="top:{{index/7<1?'45rpx':(Int.getInt(index/7)*100 + 45 + 'rpx') }};left:{{(index%7)*100 + 45  + 'rpx'}}">
+  </view>
+  <view class="line" wx:for="{{42}}" wx:key="index"
+    style="top:{{index/6<1?'48rpx':(Int.getInt(index/6)*100 + 48 + 'rpx') }};left:{{(index%6)*100 + 50  + 'rpx'}}"
+    wx:if="{{Int.hasItem(rowLine,index)}}">
+  </view>
+  <view class="verLine" wx:for="{{42}}" wx:key="index"
+    style="top:{{index/7<1?'48rpx':(Int.getInt(index/7)*100 + 48 + 'rpx') }};left:{{(index%7)*100 + 48  + 'rpx'}}"
+    wx:if="{{Int.hasItem(verLine,index)}}">
+  </view>
+  <view class="position" wx:for="{{36}}" wx:key="index"
+    style="top:{{index/6<1?'48rpx':(Int.getInt(index/6)*100 + 48 + 'rpx') }};left:{{(index%6)*100 + 48  + 'rpx'}}"
+    wx:if="{{Int.hasItem(aGrid,index)||Int.hasItem(bGrid,index)}}">
+    {{Int.hasItem(bGrid,index)?'+':'-'}}
+  </view>
+</view>
+
+<view class="current"> 当前人： {{currentIndex == 0?'+':'-'}}</view>
+<view class="current">+ 占了 {{bGrid.length}}</view>
+<view class="current">- 占了 {{aGrid.length}}</view>
+<view class="current" wx:if="{{(bGrid.length + aGrid.length) == 36}}">
+  {{bGrid.length>aGrid.length?'+赢了':bGrid.length == aGrid.length?'平局':'-赢了'}}
+</view>
+<view class="restart" bindtap="again">重新开始</view>

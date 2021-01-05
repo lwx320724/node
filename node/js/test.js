@@ -1,19 +1,16 @@
+Promise.resolve('1')
+    .then(res => {
+        console.log(res)
+    })
+    .finally(() => {
+        console.log('finally')
+    })
+Promise.resolve('2')
+    .finally(() => {
+        console.log('finally2')
+        return '我是finally2返回的值'
+    })
+    .then(res => {
+        console.log('finally2后面的then函数', res)
+    })
 
-function getRondomArr(arr) {
-    arr.push(getRondom(2, 32));
-    arr = Array.from(new Set(arr));
-    if (arr.length == 5) {
-        console.log(arr)
-        return arr
-    } else {
-        getRondomArr(arr)
-    }
-};
-
-function getRondom(min, max) {
-    return Math.round(Math.random() * (max - min) + min);
-};
-
-
-let a = getRondomArr([])
-console.log(a, '===a');

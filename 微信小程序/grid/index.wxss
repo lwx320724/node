@@ -1,0 +1,60 @@
+.main {
+  width: 700rpx;
+  height: 700rpx;
+  position: relative;
+  margin: 0 auto;
+  padding: 50rpx;
+  box-sizing: border-box;
+}
+
+
+.dot {
+  width: 10rpx;
+  height: 10rpx;
+  background: #000;
+  border-radius: 50%;
+  display: block;
+  position: absolute;
+}
+
+.line {
+  width: 100rpx;
+  height: 2rpx;
+  background: #000;
+  position: absolute;
+  left: 50rpx;
+  top: 48rpx;
+}
+
+.verLine {
+  width: 2rpx;
+  height: 100rpx;
+  background: #000;
+  position: absolute;
+  left: 50rpx;
+  top: 48rpx;
+}
+
+.position{
+  width: 100rpx;
+  height: 100rpx;
+  position: absolute;
+  left: 50rpx;
+  top: 48rpx;
+  text-align: center;
+  line-height: 100rpx;
+}
+.restart{
+  margin: 0 auto;
+  width: 100px;
+  height: 35px;
+  text-align: center;
+  line-height: 35px;
+  border: 1rpx solid gray;
+  border-radius: 5px;
+}
+.current{
+  margin: 0 auto;
+  text-align: center;
+  padding-bottom: 30rpx;
+}
