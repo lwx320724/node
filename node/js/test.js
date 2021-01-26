@@ -1,54 +1,28 @@
-/*
-    自定义Promise
-*/
-(function (window) {
+// function Parent(){
+//     this.name='parent'
+// }
+// Parent.prototype.say = function (){
+//     console.log('parent吃了')
+// }
+
+// function Child(){
+//     Parent.call(this)
+// }
+
+// Child.prototype = Parent.prototype
+// Child.prototype.constructor = Child
+
+// var child1 = new Child()
+// var child2 = new Child()
+// child1.name = 'zhangsan'
+// console.log(child1)
+// console.log(child2.name)
+// child1.say()
+// child2.say()
 
 
-    function Promise(executor) {
-
-    }
-
-    window.Promise = Promise
-
-})()
-
-
-/*
-    promise原型对象的then()
-*/
-
-Promise.prototype.then = function (onResolved, onRejected) {
-
-}
-
-/*
-    promise原型对象的catch
-*/
-Promise.prototype.catch = function (onRejected) {
-
-}
-
-Promise.resolve = function (value) {
+function deepCopy(obj) {
+    if (typeof obj !== 'object' || obj === null) return obj
+    
 
 }
-Promise.reject = function (value) {
-
-}
-Promise.all = function (value) {
-
-}
-Promise.race = function (value) {
-
-}
-
-
-
-
-
-
-
-
-
-
-
-
